@@ -1,0 +1,95 @@
+project(test)
+
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+include_directories(../source)
+
+set(TestFiles
+        leetcode-src/0300/331.cc
+        leetcode-src/1300/1333.cc
+        leetcode-src/2200/2251.cc
+        leetcode-src/0600/605.cc
+        leetcode-src/2100/2136.cc
+        leetcode-src/2200/2264.cc
+        leetcode-src/0100/122.cc
+        leetcode-src/1900/1921.cc
+        leetcode-src/1800/1857.cc
+        leetcode-src/0100/123.cc
+        leetcode-src/2000/2034.cc
+        leetcode-src/2500/2512.cc
+        leetcode-src/1400/1488.cc
+        leetcode-src/0600/673.cc
+        leetcode-src/0300/300.cc
+        leetcode-src/algorithm/test_search.cc
+        leetcode-src/1500/1559.cc
+        leetcode-src/1700/1726.cc
+        leetcode-src/lcp/50.cc
+        leetcode-src/2500/2525.cc
+        leetcode-src/0000/01.cc
+        leetcode-src/0000/02.cc
+        leetcode-src/0000/03.cc
+        leetcode-src/1400/1402.cc
+        leetcode-src/2600/2678.cc
+        leetcode-src/1100/1155.cc
+        leetcode-src/2600/2698.cc
+        leetcode-src/2500/2520.cc
+        leetcode-src/1400/1465.cc
+        leetcode-src/2500/2558.cc
+        leetcode-src/0000/04.cc
+        leetcode-src/0000/05.cc
+        leetcode-src/0200/274.cc
+        leetcode-src/0000/06.cc
+        leetcode-src/0200/275.cc
+        leetcode-src/0000/07.cc
+        leetcode-src/2000/2003.cc
+        leetcode-src/0000/08.cc
+        leetcode-src/2100/2127.cc
+        leetcode-src/0000/09.cc
+        leetcode-src/2100/2103.cc
+        leetcode-src/0000/10.cc
+        leetcode-src/0000/11.cc
+        leetcode-src/0400/421.cc
+        leetcode-src/0100/187.cc
+        leetcode-src/0000/12.cc
+        leetcode-src/0300/318.cc
+        leetcode-src/0000/13.cc
+        leetcode-src/2500/2586.cc
+        leetcode-src/0000/14.cc
+        leetcode-src/2600/2609.cc
+        leetcode-src/0000/15.cc
+        leetcode-src/2200/2258.cc
+        leetcode-src/0000/16.cc
+        leetcode-src/2300/2300.cc
+        leetcode-src/0000/17.cc
+        leetcode-src/0700/765.cc
+        leetcode-src/0700/715.cc
+        leetcode-src/0300/307.cc
+        leetcode-src/0300/307.cc
+        leetcode-src/1300/1334.cc
+        leetcode-src/2600/2656.cc
+        leetcode-src/2700/2760.cc
+        leetcode-src/2700/2736.h
+        leetcode-src/0000/21.cc
+        leetcode-src/0000/18.cc
+        leetcode-src/0000/19.cc
+        leetcode-src/0000/53.cc
+        leetcode-src/0500/504.cc
+        leetcode-src/0000/20.cc
+        leetcode-src/2200/2216.cc
+        leetcode-src/1400/1410.cc
+        leetcode-src/2800/2824.cc
+        leetcode-src/0200/273.cc
+        leetcode-src/0200/289.cc
+        leetcode-src/0800/828.cc
+        leetcode-src/0900/907.cc
+)
+
+add_executable(${PROJECT_NAME}
+        ${TestFiles}
+)
+
+target_link_libraries(${PROJECT_NAME}
+        source
+        GTest::GTest
+        GTest::Main
+)

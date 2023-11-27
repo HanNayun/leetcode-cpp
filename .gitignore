@@ -1,0 +1,6 @@
+.DS_Store
+cmake-build-debug
+.idea
+cmake-build-debug-coverage
+cmake-build-default
+cmake-build-release
