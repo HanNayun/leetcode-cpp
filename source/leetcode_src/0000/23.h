@@ -2,7 +2,6 @@
 #include "include/list_node.h"
 
 #include<queue>
-#include<algorithm>
 
 namespace leetcode_23{
 class Solution
@@ -21,17 +20,17 @@ public:
         if (l > r)
             return nullptr;
 
-        int mid = (l + r) / 2;
-        return mergeTwoLists(MergeLists(lists, l, mid), MergeLists(lists, mid + 1, r));
+        const int mid = (l + r) / 2;
+        return MergeTwoList(MergeLists(lists, l, mid), MergeLists(lists, mid + 1, r));
     }
 
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2)
+    static ListNode* MergeTwoList(ListNode* list1, ListNode* list2)
     {
         if ((!list1) || (!list2))
             return list1 == nullptr ? list2 : list1;
 
         auto dummy = new ListNode;
-        const auto res = dummy;
+        auto res = dummy;
         ListNode* next = nullptr;
         while (list1 && list2)
         {
@@ -52,11 +51,12 @@ public:
         }
 
         dummy->next = list1 == nullptr ? list2 : list1;
-        auto ans = res->next;
-        res->next = nullptr;
-        delete res;
+        dummy = res;
+        res = res->next;
+        dummy->next = nullptr;
+        delete dummy;
 
-        return ans;
+        return res;
     }
 };
 }
