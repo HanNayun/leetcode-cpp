@@ -3,39 +3,40 @@
 
 #include "include/list_node.h"
 
-namespace Leetcode_24
+namespace leetcode_24{
+class Solution
 {
-    class Solution
+public:
+    ListNode* swapPairs(ListNode* head)
     {
-    public:
-        ListNode* swapPairs(ListNode* head)
+        if (!head)
+            return nullptr;
+
+        auto p1 = head;
+        auto p2 = p1->next;
+        if (!p2)
+            return p1;
+
+        auto dummy = ListNode{};
+        dummy.next = p2;
+        auto prev = &dummy;
+
+        while (p2 != nullptr)
         {
-            if (head == nullptr)
-            {
-                return head;
-            }
+            p1->next = p2->next;
+            p2->next = p1;
+            prev->next = p2;
 
-            auto dummy = new ListNode;
-            auto res = dummy;
-            auto p1 = head;
-            auto p2 = head->next;
-
-            dummy->next = p1;
-            while (p2 != nullptr)
-            {
-                p1->next = p2->next;
-                p2->next = p1;
-                dummy->next = p2;
-                dummy = dummy->next->next;
-                p1 = p1->next;
-                p2 = p1 == nullptr ? nullptr : p1->next;
-            }
-
-            auto ans = res->next;
-            delete res;
-            return ans;
+            prev = p1;
+            p1 = p1->next;
+            p2 = p1 ? p1->next : nullptr;
         }
-    };
+
+        auto res = dummy.next;
+        dummy.next = nullptr;
+        return res;
+    }
+};
 }
 
 #endif //LEETCODE_CC_24_H

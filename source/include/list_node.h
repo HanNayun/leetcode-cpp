@@ -9,18 +9,17 @@ public:
 
     explicit ListNode(int x) : val(x), next(nullptr) {}
 
-    ListNode(int x, ListNode* next) : val(x), next(next) {}
+    ListNode(const int x, ListNode* next) : val(x), next(next) {}
 
-    ~ListNode()
-    {
-        delete next;
-    }
+    ~ListNode();
+
+    static ListNode* CreateList(const std::vector<int>& values);
+
+    static std::vector<int> ListToVector(ListNode* list);
 
     int val;
     ListNode* next;
 };
 
-ListNode* CreateList(const std::vector<int>& values);
 
-std::vector<int> ListToVector(ListNode* list);
 

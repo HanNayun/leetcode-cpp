@@ -1,9 +1,14 @@
 #include "list_node.h"
 
-ListNode* CreateList(const std::vector<int>& values)
+ListNode::~ListNode()
 {
-    auto dummy{new ListNode};
-    auto res{dummy};
+    delete next;
+}
+
+ListNode* ListNode::CreateList(const std::vector<int>& values)
+{
+    auto dummy{ new ListNode };
+    auto res{ dummy };
 
     for (auto& v: values)
     {
@@ -15,9 +20,9 @@ ListNode* CreateList(const std::vector<int>& values)
     return dummy->next;
 }
 
-std::vector<int> ListToVector(ListNode* list)
+std::vector<int> ListNode::ListToVector(ListNode* list)
 {
-    auto res{std::vector<int>{}};
+    auto res{ std::vector<int>{} };
     while (list != nullptr)
     {
         res.push_back(list->val);
