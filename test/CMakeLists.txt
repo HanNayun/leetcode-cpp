@@ -90,6 +90,7 @@ set(TestFiles
         leetcode-src/0000/23.cc
         leetcode-src/0000/24.cc
         leetcode-src/1000/1094.cc
+        leetcode-src/0000/26.cc
 )
 
 add_executable(${PROJECT_NAME}
