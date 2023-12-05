@@ -2,6 +2,7 @@ project(test)
 
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
+include_directories(../test)
 include_directories(../source)
 
 set(TestFiles
@@ -92,6 +93,9 @@ set(TestFiles
         leetcode-src/1000/1094.cc
         leetcode-src/0000/26.cc
         leetcode-src/1400/1423.cc
+        leetcode-src/0000/27.cc
+        utils/vector-utils.cc
+        utils/vector-utils.h
 )
 
 add_executable(${PROJECT_NAME}
