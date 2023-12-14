@@ -99,9 +99,19 @@ set(TestFiles
         utils/vector-utils.h
 )
 
+set(INCLUDE_FILES
+        ../include/list_node.cc
+        ../include/list_node.h
+        ../include/algorithm/Search.h
+        ../include/next_tree_node.h
+        ../include/tree_node.h
+)
+
 add_executable(${PROJECT_NAME}
         ${TestFiles}
+        ${INCLUDE_FILES}
 )
+
 
 target_link_libraries(${PROJECT_NAME}
         source
