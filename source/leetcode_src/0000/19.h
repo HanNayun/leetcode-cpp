@@ -1,14 +1,15 @@
 #pragma once
 
-#include "include/list_node.h"
+#include "list_node.h"
 
-namespace leetcode_19{
+namespace leetcode_19 {
 class Solution
 {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n)
     {
-        if (head == nullptr)return head;
+        if (head == nullptr)
+            return head;
 
         auto* p = head;
         auto* p2 = head;
@@ -20,7 +21,8 @@ public:
             ++len;
         }
 
-        if (len == 1)return nullptr;
+        if (len == 1)
+            return nullptr;
         if (len == n)
         {
             auto res = head->next;

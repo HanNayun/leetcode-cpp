@@ -1,15 +1,7 @@
 project(source)
 
-include_directories(include)
-
+include_directories(../include)
 set(HEADER_FILES
-        include/list_node.h
-        include/list_node.cc
-        include/tree_node.h
-        include/algorithm/Search.cc
-        include/algorithm/Search.h
-        include/next_tree_node.h
-
         leetcode_src/0000/01.h
         leetcode_src/0000/02.h
         leetcode_src/0000/21.h
@@ -145,6 +137,10 @@ set(HEADER_FILES
         leetcode_src/2100/2132.h
         leetcode_src/2400/2454.h
         leetcode_src/0300/304.h
+        leetcode_src/0100/117.h
+        symbol.cc
+        symbol.h
+        leetcode_src/2000/2057.h
 )
 
 add_library(${PROJECT_NAME} STATIC ${HEADER_FILES})

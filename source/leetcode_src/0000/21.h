@@ -1,8 +1,8 @@
 #pragma once
 
-#include "include/list_node.h"
+#include "list_node.h"
 
-namespace Leetcode_21{
+namespace Leetcode_21 {
 class Solution
 {
 public:

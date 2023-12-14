@@ -1,9 +1,10 @@
 #pragma once
+
 #include <stack>
 #include <string>
 #include <vector>
 
-namespace leetcode_22{
+namespace leetcode_22 {
 class Solution
 {
 public:
@@ -27,7 +28,7 @@ public:
 
     std::vector<std::string> generateParenthesis(int n)
     {
-        auto res{ std::vector<std::string>{} };
+        auto res{std::vector<std::string>{}};
         CreateParenthesis(res, "", n, n);
         return res;
     }

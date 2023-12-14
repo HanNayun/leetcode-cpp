@@ -3,14 +3,14 @@
 #include <string>
 #include <vector>
 
-namespace leetcode_10{
+namespace leetcode_10 {
 class Solution
 {
 public:
     bool isMatch(std::string src, std::string pattern)
     {
-        auto m{ src.size() };
-        auto n{ pattern.size() };
+        auto m{src.size()};
+        auto n{pattern.size()};
         std::vector<std::vector<int>> dp(m + 1, std::vector<int>(n + 1, 0));
         dp[0][0] = true;
         for (int i = 0; i <= m; ++i)
@@ -42,8 +42,12 @@ public:
                         const int& i,
                         const int& j)
     {
-        if (i == 0) return false;
-        if (pattern[j - 1] == '.') return true;
+        if (i == 0)
+            return false;
+
+        if (pattern[j - 1] == '.')
+            return true;
+        
         return src[i - 1] == pattern[j - 1];
     }
 };

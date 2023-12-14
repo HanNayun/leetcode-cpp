@@ -1,58 +1,55 @@
-#ifndef LEETCODE_CC_722_H
-#define LEETCODE_CC_722_H
+#pragma once
 
 #include <vector>
 #include <string>
 
-namespace Leetcode_722
+namespace Leetcode_722 {
+class Solution
 {
-    class Solution
+public:
+    std::vector<std::string> removeComments(std::vector<std::string>& source)
     {
-    public:
-        std::vector<std::string> removeComments(std::vector<std::string>& source)
+        std::vector<std::string> res;
+        std::string new_line;
+        bool in_block = false;
+        for (auto& line: source)
         {
-            std::vector<std::string> res;
-            std::string new_line;
-            bool in_block = false;
-            for (auto& line: source)
+            for (int i = 0; i < line.size(); i++)
             {
-                for (int i = 0; i < line.size(); i++)
+                if (in_block)
                 {
-                    if (in_block)
+                    if (i + 1 < line.size() && line[i] == '*' && line[i + 1] == '/')
                     {
-                        if (i + 1 < line.size() && line[i] == '*' && line[i + 1] == '/')
-                        {
-                            in_block = false;
-                            i++;
-                        }
+                        in_block = false;
+                        i++;
+                    }
+                }
+                else
+                {
+                    if (i + 1 < line.size() && line[i] == '/' && line[i + 1] == '*')
+                    {
+                        in_block = true;
+                        i++;
+                    }
+                    else if (i + 1 < line.size() & line[i] == '/' && line[i + 1] == '/')
+                    {
+                        break;
                     }
                     else
                     {
-                        if (i + 1 < line.size() && line[i] == '/' && line[i + 1] == '*')
-                        {
-                            in_block = true;
-                            i++;
-                        }
-                        else if (i + 1 < line.size() & line[i] == '/' && line[i + 1] == '/')
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            new_line += line[i];
-                        }
+                        new_line += line[i];
                     }
                 }
-
-                if (!in_block && !new_line.empty())
-                {
-                    res.push_back(new_line);
-                    new_line = "";
-                }
             }
-            return res;
+
+            if (!in_block && !new_line.empty())
+            {
+                res.push_back(new_line);
+                new_line = "";
+            }
         }
-    };
+        return res;
+    }
+};
 }
 
-#endif //LEETCODE_CC_722_H

@@ -1,9 +1,10 @@
 #pragma once
+
 #include <pthread.h>
 
-#include "include/list_node.h"
+#include "list_node.h"
 
-namespace leetcode_25{
+namespace leetcode_25 {
 class Solution
 {
 public:
@@ -12,8 +13,8 @@ public:
         if (!start || !end)
             return start;
 
-        auto p1{ start };
-        auto p2{ p1->next };
+        auto p1{start};
+        auto p2{p1->next};
         start->next = end->next;
         while (p2)
         {
@@ -32,7 +33,7 @@ public:
         if (k <= 1)
             return head;
 
-        auto dummy{ ListNode{} };
+        auto dummy{ListNode{}};
         dummy.next = head;
         auto prev = &dummy;
 

@@ -1,37 +1,34 @@
-#ifndef LEETCODE_2558_H
-#define LEETCODE_2558_H
+#pragma once
 
 #include <vector>
 #include <queue>
 #include <algorithm>
 #include <numeric>
 
-namespace Leetcode_2558
+namespace Leetcode_2558 {
+class Solution
 {
-    class Solution
+public:
+    long long pickGifts(std::vector<int>& gifts, int k)
     {
-    public:
-        long long pickGifts(std::vector<int>& gifts, int k)
+        auto heap{std::priority_queue<int>(gifts.begin(), gifts.end())};
+        while (k > 0)
         {
-            auto heap{ std::priority_queue<int>(gifts.begin(), gifts.end()) };
-            while (k > 0)
-            {
-                --k;
-                auto v = heap.top();
-                heap.pop();
-                v = std::floor(std::sqrt(v));
-                heap.push(v);
-            }
-
-            auto res{ 0ll };
-            while (!heap.empty())
-            {
-                res += heap.top();
-                heap.pop();
-            }
-
-            return res;
+            --k;
+            auto v = heap.top();
+            heap.pop();
+            v = std::floor(std::sqrt(v));
+            heap.push(v);
         }
-    };
+
+        auto res{0ll};
+        while (!heap.empty())
+        {
+            res += heap.top();
+            heap.pop();
+        }
+
+        return res;
+    }
+};
 }
-#endif //LEETCODE_2558_H

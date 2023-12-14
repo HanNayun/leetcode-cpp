@@ -1,15 +1,12 @@
-#ifndef LEETCODE_CC_2235_H
-#define LEETCODE_CC_2235_H
+#pragma once
 
-namespace leetcode_2235
+namespace leetcode_2235 {
+class Solution
 {
-    class Solution
+public:
+    int sum(int num1, int num2)
     {
-    public:
-        int sum(int num1, int num2)
-        {
-            return num1 + num2;
-        }
-    };
+        return num1 + num2;
+    }
+};
 }
-#endif //LEETCODE_CC_2235_H

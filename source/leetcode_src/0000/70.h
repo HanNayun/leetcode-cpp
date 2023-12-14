@@ -20,5 +20,4 @@ public:
 private:
     inline static std::vector<int> cache_{0, 1, 2};
 };
-
 }

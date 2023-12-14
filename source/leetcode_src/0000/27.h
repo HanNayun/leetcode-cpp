@@ -2,13 +2,13 @@
 
 #include <vector>
 
-namespace leetcode_27{
+namespace leetcode_27 {
 class Solution
 {
 public:
     int removeElement(std::vector<int>& nums, int val)
     {
-        int p{ static_cast<int>(nums.size()) };
+        int p{static_cast<int>(nums.size())};
         if (p == 0)
             return 0;
 

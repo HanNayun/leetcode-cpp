@@ -1,9 +1,8 @@
-#ifndef LEETCODE_CC_24_H
-#define LEETCODE_CC_24_H
+#pragma once
 
-#include "include/list_node.h"
+#include "list_node.h"
 
-namespace leetcode_24{
+namespace leetcode_24 {
 class Solution
 {
 public:
@@ -39,4 +38,3 @@ public:
 };
 }
 
-#endif //LEETCODE_CC_24_H

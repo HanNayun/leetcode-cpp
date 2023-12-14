@@ -1,14 +1,14 @@
 #pragma once
 
-#include "include/tree_node.h"
+#include "tree_node.h"
 
-namespace leetcode_1038{
+namespace leetcode_1038 {
 class Solution
 {
 public:
     TreeNode* bstToGst(TreeNode* root)
     {
-        int res{ 0 };
+        int res{0};
         RightRootLeft(root, res);
         return root;
     }

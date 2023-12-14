@@ -1,24 +1,19 @@
-#ifndef LEETCODE_136_H
-#define LEETCODE_136_H
+#pragma once
 
 #include <vector>
 
-namespace Leetcode_136
+namespace Leetcode_136 {
+class Solution
 {
-    class Solution
+public:
+    int singleNumber(std::vector<int>& nums)
     {
-    public:
-        int singleNumber(std::vector<int>& nums)
-        {
-            int res{ 0 };
-            for (auto& num: nums)
-            {
-                res ^= num;
-            }
+        int res{0};
+        for (auto& num: nums)
+            res ^= num;
 
-            return res;
-        }
-    };
+        return res;
+    }
+};
 }
 
-#endif //LEETCODE_136_H

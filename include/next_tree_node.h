@@ -1,5 +1,4 @@
-#ifndef LEETCODE_NEXT_TREE_NODE_H
-#define LEETCODE_NEXT_TREE_NODE_H
+#pragma once
 
 class Node
 {
@@ -22,4 +21,3 @@ public:
     }
 };
 
-#endif //LEETCODE_NEXT_TREE_NODE_H

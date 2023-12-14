@@ -1,35 +1,28 @@
-#ifndef LEETCODE_CC_2591_H
-#define LEETCODE_CC_2591_H
+#pragma once
 
 #include <algorithm>
 
-namespace Leetcode_2591
+namespace Leetcode_2591 {
+
+class Solution
 {
-
-    class Solution
+public:
+    int distMoney(int money, int children)
     {
-    public:
-        int distMoney(int money, int children)
-        {
-            if (money < children)
-            {
-                return -1;
-            }
+        if (money < children)
+            return -1;
 
-            money -= children;
-            auto count = std::min(money / 7, children);
-            money -= count * 7;
-            children -= count;
+        money -= children;
+        auto count = std::min(money / 7, children);
+        money -= count * 7;
+        children -= count;
 
-            if (children == 0 && money > 0
-                || children == 1 && money == 3)
-            {
-                count--;
-            }
+        if (children == 0 && money > 0 ||
+            children == 1 && money == 3)
+            count--;
 
-            return count;
-        }
-    };
+        return count;
+    }
+};
 }
 
-#endif //LEETCODE_CC_2591_H

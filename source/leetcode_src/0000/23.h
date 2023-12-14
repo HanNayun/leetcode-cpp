@@ -1,9 +1,10 @@
 #pragma once
-#include "include/list_node.h"
+
+#include "list_node.h"
 
 #include<queue>
 
-namespace leetcode_23{
+namespace leetcode_23 {
 class Solution
 {
 public:

@@ -3,13 +3,13 @@
 #include <string>
 #include <stack>
 
-namespace leetcode_20{
+namespace leetcode_20 {
 class Solution
 {
 public:
     bool isValid(const std::string& s)
     {
-        auto stack{ std::stack<char>{} };
+        auto stack{std::stack<char>{}};
         for (const auto& c: s)
         {
             if (c == '(' || c == '[' || c == '{')

@@ -4,7 +4,7 @@
 #include <vector>
 #include <numeric>
 
-namespace leetcode_06{
+namespace leetcode_06 {
 class Solution
 {
 public:
@@ -13,9 +13,9 @@ public:
         if (num_rows == 1)
             return s;
 
-        auto rows{ std::vector<std::string>(num_rows, "") };
-        auto row{ 0 };
-        auto down{ 1 };
+        auto rows{std::vector<std::string>(num_rows, "")};
+        auto row{0};
+        auto down{1};
         for (auto& i: s)
         {
             rows[row] += i;

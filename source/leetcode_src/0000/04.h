@@ -2,14 +2,14 @@
 
 #include <vector>
 
-namespace leetcode_04{
+namespace leetcode_04 {
 class Solution
 {
 public:
     double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2)
     {
-        auto m{ static_cast<int>(nums1.size()) };
-        auto n{ static_cast<int>(nums2.size()) };
+        auto m{static_cast<int>(nums1.size())};
+        auto n{static_cast<int>(nums2.size())};
 
         if (m + n == 0)
             return 0;
@@ -23,11 +23,11 @@ public:
 
     static int FindKthNumber(std::vector<int>& nums1, std::vector<int>& nums2, int k)
     {
-        auto m{ static_cast<int>(nums1.size()) };
-        auto n{ static_cast<int>(nums2.size()) };
+        auto m{static_cast<int>(nums1.size())};
+        auto n{static_cast<int>(nums2.size())};
 
-        int i{ 0 };
-        int j{ 0 };
+        int i{0};
+        int j{0};
 
         while (k > 1)
         {

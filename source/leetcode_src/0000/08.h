@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace leetcode_08{
+namespace leetcode_08 {
 class Automaton
 {
     // Types
@@ -50,8 +50,8 @@ public: // None static functions
             {
                 state_ = State::kEnd;
                 res_ = sign_ == 1
-                           ? INT32_MAX
-                           : INT32_MIN;
+                       ? INT32_MAX
+                       : INT32_MIN;
             }
         }
         else if (state_ == State::kSigned)
@@ -77,10 +77,10 @@ private:
     long long res_ = 0;
     State state_ = State::kStart;
     std::unordered_map<State, std::vector<State>> table_ = {
-        { State::kStart, { State::kStart, State::kSigned, State::kInNumber, State::kEnd } },
-        { State::kSigned, { State::kEnd, State::kEnd, State::kInNumber, State::kEnd } },
-        { State::kInNumber, { State::kEnd, State::kEnd, State::kInNumber, State::kEnd } },
-        { State::kEnd, { State::kEnd, State::kEnd, State::kEnd, State::kEnd } }
+            {State::kStart,    {State::kStart, State::kSigned, State::kInNumber, State::kEnd}},
+            {State::kSigned,   {State::kEnd,   State::kEnd,    State::kInNumber, State::kEnd}},
+            {State::kInNumber, {State::kEnd,   State::kEnd,    State::kInNumber, State::kEnd}},
+            {State::kEnd,      {State::kEnd,   State::kEnd,    State::kEnd,      State::kEnd}}
     };
 };
 
@@ -89,13 +89,15 @@ class Solution
 public:
     static int myAtoi(std::string s)
     {
-        auto automaton{ Automaton() };
-        std::find_if(s.begin(), s.end(), [&automaton](const char& c) -> bool
+        auto automaton{Automaton()};
+
+        for (const auto& c: s)
         {
             automaton.input(c);
-            return automaton.IsEnd();
-        });
-
+            if (automaton.IsEnd())
+                break;
+        }
+        
         return automaton.ParseRes();
     }
 };

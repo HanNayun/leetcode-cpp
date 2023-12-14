@@ -4,7 +4,7 @@
 #include <string>
 #include <array>
 
-namespace leetcode_12{
+namespace leetcode_12 {
 class Solution
 {
 public:
@@ -14,9 +14,9 @@ public:
     }
 
 private:
-    const std::array<std::string, 4> thousands{ "", "M", "MM", "MMM" };
-    const std::array<std::string, 10> hundreds{ "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
-    const std::array<std::string, 10> tens{ "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
-    const std::array<std::string, 10> ones{ "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+    const std::array<std::string, 4> thousands{"", "M", "MM", "MMM"};
+    const std::array<std::string, 10> hundreds{"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+    const std::array<std::string, 10> tens{"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+    const std::array<std::string, 10> ones{"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
 };
 }

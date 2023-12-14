@@ -4,6 +4,7 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 include_directories(../test)
 include_directories(../source)
+include_directories(../include)
 
 set(TestFiles
         leetcode-src/0300/331.cc

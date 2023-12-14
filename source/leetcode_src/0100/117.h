@@ -1,57 +1,57 @@
-#ifndef LEETCODE_117_H
-#define LEETCODE_117_H
+#pragma once
 
-#include "include/next_tree_node.h"
+#include "next_tree_node.h"
 
 #include <queue>
 #include <algorithm>
 #include <memory>
 
-namespace leetcode_117
+namespace leetcode_117 {
+
+class Solution
 {
-
-    class Solution
+public:
+    Node* connect(Node* root)
     {
-    public:
-        Node* connect(Node* root)
-        {
-            if (!root)return root;
+        if (!root)return root;
 
-            auto start_node_ptr{ root };
+        auto start_node_ptr{root};
+        while (start_node_ptr)
+        {
+            Node* next_layer_start_node_ptr{nullptr};
+            Node* wait_next_connect_node_prt{nullptr};
+
             while (start_node_ptr)
             {
-                Node* next_layer_start_node_ptr{ nullptr };
-                Node* wait_next_connect_node_prt{ nullptr };
+                if (start_node_ptr->left)
+                    ConnectNode(wait_next_connect_node_prt, start_node_ptr->left, next_layer_start_node_ptr);
+                if (start_node_ptr->right)
+                    ConnectNode(wait_next_connect_node_prt, start_node_ptr->right, next_layer_start_node_ptr);
 
-                while (start_node_ptr)
-                {
-                    if (start_node_ptr->left)
-                        ConnectNode(wait_next_connect_node_prt, start_node_ptr->left, next_layer_start_node_ptr);
-                    if (start_node_ptr->right)
-                        ConnectNode(wait_next_connect_node_prt, start_node_ptr->right, next_layer_start_node_ptr);
-
-                    start_node_ptr = start_node_ptr->next;
-                }
-
-                start_node_ptr = next_layer_start_node_ptr;
+                start_node_ptr = start_node_ptr->next;
             }
 
-            return root;
+            start_node_ptr = next_layer_start_node_ptr;
         }
 
-        void ConnectNode(Node*& wait_next_node,
-                         Node*& next_node,
-                         Node*& next_layer_start_node)
-        {
-            if (!next_layer_start_node) next_layer_start_node = next_node;
+        return root;
+    }
 
-            if (!wait_next_node) wait_next_node = next_node;
-            else wait_next_node->next = next_node;
+    void ConnectNode(Node*& wait_next_node,
+                     Node*& next_node,
+                     Node*& next_layer_start_node)
+    {
+        if (!next_layer_start_node)
+            next_layer_start_node = next_node;
 
+        if (!wait_next_node)
             wait_next_node = next_node;
-        }
-    };
+        else
+            wait_next_node->next = next_node;
+
+        wait_next_node = next_node;
+    }
+};
 
 }
 
-#endif //LEETCODE_117_H

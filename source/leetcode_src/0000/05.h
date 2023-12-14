@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-namespace leetcode_05{
+namespace leetcode_05 {
 class Solution
 {
 public:
@@ -14,12 +14,12 @@ public:
         if (n < 2)
             return s;
 
-        auto dp{ std::vector<std::vector<bool>>(n, std::vector<bool>(n, false)) };
+        auto dp{std::vector<std::vector<bool>>(n, std::vector<bool>(n, false))};
         for (int i = 0; i < n; ++i)
             dp[i][i] = true;
 
-        auto max_len{ 1 };
-        auto start{ 0 };
+        auto max_len{1};
+        auto start{0};
         for (int len = 2; len <= n; ++len)
         {
             for (int i = 0; i <= n - len; ++i)
