@@ -1,46 +1,43 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 namespace leetcode_28 {
 class Solution
 {
 public:
-    int strStr(std::string haystack, std::string needle)
+    int strStr(const std::string& haystack, const std::string& needle)
     {
-        auto n{haystack.size()};
-        auto m{needle.size()};
-        if (m > n)
-            return -1;
+        int n = haystack.size();
+        int m = needle.size();
 
-        if (m == n)
-            return haystack == needle ? 0 : -1;
+        if (m == 0)
+            return 0;
 
-        int left{0};
-        int right{0};
-        std::string temp;
-        while (right < m)
+        std::vector<int> pi(m);
+        for (int i = 1, j = 0; i < m; i++)
         {
-            temp += haystack[right];
-            right++;
+            while (j > 0 && needle[i] != needle[j])
+                j = pi[j - 1];
+
+            if (needle[i] == needle[j])
+                j++;
+
+            pi[i] = j;
         }
 
-        if (temp == needle)
-            return left;
-
-        while (right < n)
+        for (int i = 0, j = 0; i < n; i++)
         {
-            temp.erase(0, 1);
-            temp += haystack[right];
-            right++;
-            left++;
+            while (j > 0 && haystack[i] != needle[j])
+                j = pi[j - 1];
 
-            if (temp == needle)
-                return left;
+            if (haystack[i] == needle[j])
+                j++;
 
-
+            if (j == m)
+                return i - m + 1;
         }
-
         return -1;
     }
 };
