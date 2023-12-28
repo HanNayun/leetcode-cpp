@@ -154,6 +154,7 @@ set(HEADER_FILES
         leetcode_src/1900/1954.h
         leetcode_src/1200/1276.h
         leetcode_src/1300/1349.h
+        leetcode_src/2600/2660.h
 )
 
 add_library(${PROJECT_NAME} STATIC ${HEADER_FILES})
