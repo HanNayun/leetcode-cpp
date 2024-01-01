@@ -105,6 +105,7 @@ set(INCLUDE_FILES
         ../include/algorithm/Search.h
         ../include/next_tree_node.h
         ../include/tree_node.h
+        leetcode-src/1500/1599.cc
 )
 
 add_executable(${PROJECT_NAME}
